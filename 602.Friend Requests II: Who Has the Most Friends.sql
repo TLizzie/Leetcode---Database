@@ -18,3 +18,21 @@ group by t1.Id ) t2
 
 order by t2.num DESC
 limit 1
+
+# solution 2
+# official answer, easier 
+select ids as id, cnt as num
+from
+(
+select ids, count(*) as cnt
+   from
+   (
+        select requester_id as ids from request_accepted
+        union all
+        select accepter_id from request_accepted
+    ) as tbl1
+   group by ids
+   ) as tbl2
+order by cnt desc
+limit 1
+;
