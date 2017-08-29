@@ -1,3 +1,5 @@
+# solution 1
+
 select id, movie, description, rating 
 from cinema
 where id%2 != 0 
