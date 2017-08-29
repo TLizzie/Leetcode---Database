@@ -1,5 +1,5 @@
 # solution 1 
-# Union all will not elimit duplicate rows
+# union all will not elimit duplicate rows
 select t2.Id as id, t2.num as num
 from (
 select t1.Id, sum(cnt) as num
