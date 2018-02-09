@@ -6,6 +6,7 @@ BEGIN
 set N = N-1;
   RETURN (
       # Write your MySQL query statement below.
+      # Not going to work now for duplicate salaries 
       select ifnull ((select Salary from Employee order by Salary DESC limit 1 offset N), null)
      );
 END
