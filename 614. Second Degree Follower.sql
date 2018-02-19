@@ -17,7 +17,8 @@ where BINARY followee in (
 select distinct follower from follow)
 group by followee
 
-#another solution
+#another solution 
+#does not work anymore 2/19/2018 
 
 select f1.followee as follower, count(*) as num
 from (select distinct * from follow) f1
