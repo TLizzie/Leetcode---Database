@@ -6,3 +6,8 @@ where
 e.Salary = h.Salary and  
 e.DepartmentId = h.DepartmentId and  
 e.DepartmentId = d.Id;  
+
+
+SELECT d.Name AS Department, e.Name AS Employee, e.Salary AS Salary
+FROM Department d JOIN Employee e ON e.DepartmentId = d.Id
+WHERE e.Salary IN (Select Max(e2.Salary) from Employee e2 where e.DepartmentId = e2.DepartmentId)
