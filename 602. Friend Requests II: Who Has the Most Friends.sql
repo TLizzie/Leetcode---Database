@@ -36,3 +36,13 @@ select ids, count(*) as cnt
 order by cnt desc
 limit 1
 ;
+
+# 2/19/2018
+select a.id, count(*) as num
+from 
+(select requester_id as id from request_accepted
+union all 
+select accepter_id as id from request_accepted) a
+group by id
+order by num desc
+limit 1
