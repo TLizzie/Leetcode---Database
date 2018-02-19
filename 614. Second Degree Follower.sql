@@ -8,7 +8,16 @@ select follower from follow)
 group by followee
 order by follower
 
-# 11/12 test case passed..
+# 11/12 test case passed..becuase case insentive search
+# 2/18/19 edit 
+select followee as follower, count(*) as num
+from (select distinct * from follow) a
+
+where BINARY followee in (
+select distinct follower from follow)
+group by followee
+
+#another solution
 
 select f1.followee as follower, count(*) as num
 from (select distinct * from follow) f1
