@@ -5,3 +5,12 @@ else 'Leaf'
 end as Type
 from tree 
 order by Id
+
+#2/19/2018
+select id, 
+
+case when p_id is null then "Root"
+     when id in (select p_id from tree) then "Inner"
+     else "Leaf"
+end as Type
+from tree
